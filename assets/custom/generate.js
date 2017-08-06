@@ -3,9 +3,9 @@ $(document).ready(function(){
      xmlhttp.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
              document.getElementById("content").innerHTML = this.responseText;
-
                $("#btnSubmit").click(function(){
-                 $("form").submit();
+                //  $("form").submit();
+                alert($("#txtName").val());
                });
 
          }
