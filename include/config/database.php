@@ -10,6 +10,7 @@ function connect_db()
   }
   return $conn;
 }
+
 function query($sql="",$conn)
 {
   if($conn)
