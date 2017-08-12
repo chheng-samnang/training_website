@@ -5,7 +5,7 @@
         <div class="container" id="maincontent" tabindex="-1">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
+                    <img class="img-responsive" src="<?php echo $path?>assets/website_css/img/profile.png" alt="">
                     <div class="intro-text">
                         <h1 class="name">Start Bootstrap</h1>
                         <hr class="star-light">
@@ -33,7 +33,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="Cabin">
+                        <img src="<?php echo $path?>assets/website_css/img/portfolio/cabin.png" class="img-responsive" alt="Cabin">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -43,7 +43,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="Slice of cake">
+                        <img src="<?php echo $path?>assets/website_css/img/portfolio/cake.png" class="img-responsive" alt="Slice of cake">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -53,7 +53,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="Circus tent">
+                        <img src="<?php echo $path?>assets/website_css/img/portfolio/circus.png" class="img-responsive" alt="Circus tent">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -63,7 +63,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="Game controller">
+                        <img src="<?php echo $path?>assets/website_css/img/portfolio/game.png" class="img-responsive" alt="Game controller">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -73,7 +73,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="Safe">
+                        <img src="<?php echo $path?>assets/website_css/img/portfolio/safe.png" class="img-responsive" alt="Safe">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -83,7 +83,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="Submarine">
+                        <img src="<?php echo $path?>assets/website_css/img/portfolio/submarine.png" class="img-responsive" alt="Submarine">
                     </a>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo $path?>assets/website_css/img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -277,7 +277,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo $path?>assets/website_css/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -314,7 +314,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo $path?>assets/website_css/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -351,7 +351,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo $path?>assets/website_css/img/portfolio/game.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -388,7 +388,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo $path?>assets/website_css/img/portfolio/safe.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -425,7 +425,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo $path?>assets/website_css/img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
