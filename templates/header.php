@@ -1,8 +1,7 @@
 <?php
 include_once("path.php");
 include_once($include."initialize.php");
-$conn = connect_db();
-echo $path;
+
  ?>
  <!DOCTYPE html>
  <html lang="en">

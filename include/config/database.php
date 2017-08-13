@@ -1,4 +1,5 @@
 <?php
+$conn = connect_db();
 function connect_db()
 {
   include_once("config.php");
