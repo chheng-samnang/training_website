@@ -1,4 +1,5 @@
 <?php
+$conn = connect_db();
 function connect_db()
 {
   include_once("config.php");
@@ -27,6 +28,11 @@ function query($sql="",$conn)
 
 function fetch_assoc($query){
     $result = mysqli_fetch_assoc($query);
+    return $result;
+}
+
+function fetch_array($query){
+    $result = mysqli_fetch_array($query);
     return $result;
 }
 

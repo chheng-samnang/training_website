@@ -1,6 +1,9 @@
 <?php
 session_start();
-$error="";
+
+$errorMsg = "";
+$msg = "";
+
 include_once("database.php");
 include_once("validation.php");
 ?>

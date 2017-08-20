@@ -6,11 +6,14 @@ function validate_input($data) {
   return $data;
 }
 
-function displayMsg($string="",$status){
-	if($status="error"){
-		return $string;
-	}else{
-		return " Login Successfuly".$string;
-	}
+
+function displayMsg($str,$state)
+{
+  if($state=="error"){
+      return '<i class="glyphicon glyphicon-exclamation-sign"></i> '.$str;
+  }else {
+      return '<i class="glyphicon glyphicon-ok-circle"></i> '.$str;
+  }
+
 }
  ?>

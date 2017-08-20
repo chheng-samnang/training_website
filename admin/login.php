@@ -1,40 +1,48 @@
 <?php
-    include_once("../path.php");
-	include_once("../include/config/initialize.php");
-	$conn=connect_db();
-	if(isset($_POST["btn_submit"])){
-		$username=$_POST["u"];
-		$password=md5($_POST["p"]);
-		$sql="SELECT * FROM tb_acl_user WHERE username='$username' ";
-		$query=query($sql,$conn);
-		$row=fetch_assoc($query);
-		
-		if($username!="" && $password!=""){
-			if(num_rows($query)>0){
-				if($password==$row['password']){
-					$error=displayMsg("Login successfuly","succes");
-				}else{
-					$error=displayMsg("Incorrect password","error");
-				}
-			}else{
-				$error=displayMsg("Incorrect Username","error");
-			}
-		}else{
-			$error=displayMsg("Incorrect user name and password!","error");
-		}
-	}
-    
 
-	
- 
- ?>
+  include_once("../path.php");
+  include_once("../include/config/initialize.php");
+
+  if(isset($_POST["btnSubmit"]))
+  {
+    $username = validate_input($_POST["u"]);
+    $password = md5(validate_input($_POST["p"]));
+    if($username!=""&&$password!="") //when username and password have value
+    {
+      $sql = "SELECT * FROM tbluser WHERE user_name='$username'";
+      $query = query($sql,$conn);
+      if(num_rows($query)>0)
+      {
+        $row = fetch_assoc($query);
+        if($password==$row['user_pass'])
+        {
+          $msg = displayMsg("Login successful!","success");
+          $_SESSION["username"] = $row["user_name"];
+        }else {
+          $errorMsg = displayMsg("Incorrect password","error");
+        }
+      }else {
+        $errorMsg = displayMsg("Incorrect username","error");
+      }
+    }else {         //when username and password is empty
+      $errorMsg = displayMsg("Username and Password cannot be empty!","error");
+    }
+  }
+?>
+
 
 <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
   <title>Login Form</title>
-  <style>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <style>
+
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
@@ -51,7 +59,11 @@
 
 html { width: 100%; height:100%; overflow:hidden; }
 
-body { 
+h5{
+  color:white;
+}
+body {
+
 	width: 100%;
 	height:100%;
 	font-family: 'Open Sans', sans-serif;
@@ -63,7 +75,9 @@ body {
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
-.login { 
+
+.login {
+
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -73,9 +87,11 @@ body {
 }
 .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
-input { 
-	width: 100%; 
-	margin-bottom: 10px; 
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
@@ -93,20 +109,39 @@ input {
 	transition: box-shadow .5s ease;
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
-</style>
+
+
+    </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script type="text/javascript" src="<?php echo $path_admin?>assets/jquery/jquery-3.2.1.min">
+
+  </script>
 </head>
+
 <body>
   <div class="login">
 	<h1>Login</h1>
-    <form method="post">
+    <form method="post" action="login.php">
     	<input type="text" name="u" placeholder="Username" required="required" />
         <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" name="btn_submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-		<h1><?php echo $error; ?></h1>
+        <button type="submit" name="btnSubmit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <h5><?php echo $errorMsg ?><?php echo $msg ?> </h5>
     </form>
 </div>
-  
-    <script src="<?php echo $path_admin;?>assets/login/js/index.js"></script>
+
+<script src="<?php echo $path_admin?>assets/login/js/index.js"></script>
+<script type="text/javascript">
+  var status = '<?php echo $msg?>';
+
+
+  if(status=='<i class="glyphicon glyphicon-ok-circle"></i> Login successful!')
+  {
+      setTimeout(function(){
+        window.location.assign("index.php");
+    },3000);
+  }
+</script>
 
 </body>
 </html>
