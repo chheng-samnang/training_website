@@ -1,6 +1,5 @@
 <?php
 include_once("templates/header.php");
-
  ?>
         <div id="page-wrapper">
             <div class="row">

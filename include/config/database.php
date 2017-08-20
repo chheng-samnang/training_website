@@ -31,6 +31,11 @@ function fetch_assoc($query){
     return $result;
 }
 
+function fetch_array($query){
+    $result = mysqli_fetch_array($query);
+    return $result;
+}
+
 function num_rows($query)
 {
   $result = mysqli_num_rows($query);
