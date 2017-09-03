@@ -25,7 +25,8 @@ include_once("../include/config/session.php");
 
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
-
+    <script src="http://localhost:8888/training_website/assets/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body>
 
@@ -74,4 +75,3 @@ include_once("../include/config/session.php");
                 </ul>
             </div>
         </nav>
-

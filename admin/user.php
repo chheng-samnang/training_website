@@ -4,38 +4,14 @@ $j = 0;
 $sql = "SELECT * FROM tbluser";
 $query = query($sql,$conn);
 
-$tbl_bd = array();
 #setup header
 $header = "User Management";
-#url ADD
-$url_add = "user_add.php";
-
-#setup table header
-$tbl_hdr = array(
-                  "user_name"=>"Username",
-                  "user_id"=>"User ID",
-                  "type"=>"Type",
-                  "status"=>"Status",
-                  "user_crea"=>"User Create",
-                  "date_crea"=>"Date Create"
-
-);
-
-#setup table body
-  foreach ($query as $key => $value) {
-    $tbl_bd[$j] = array(
-                        $value["user_name"],
-                        $value["user_id"],
-                        $value["type"],
-                        $value["status"],
-                        $value["user_crea"],
-                        $value["date_crea"]
-    );
-    $j++;
-  }
-
 ?>
-
+<style media="screen">
+  .margin-top{
+    margin-top:18px;
+  }
+</style>
 
 <div class="container">
   <div class="row">
@@ -44,36 +20,37 @@ $tbl_hdr = array(
       <button type="button" name="button" class="btn btn-success" id="btnCreate"><i class="fa fa-plus"></i> Create New</button>
     </div>
   </div>
-  <div class="row">
+  <div class="row margin-top">
     <div class="col-lg-12">
       <table class="table table-hover">
         <thead>
           <tr>
             <th>No.</th>
-            <?php foreach($tbl_hdr as $hdr){ ?>
-              <th><?php  echo $hdr?></th>
-            <?php } ?>
+            <th>Username</th>
+            <th>User ID</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>User Create</th>
+            <th>Date Create</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-          <?php
-            $i = 0;
-            foreach($tbl_bd as $value){
-           ?>
+          <?php foreach ($query as $key => $value) {?>
           <tr>
             <td><?php echo $key+1 ?></td>
-            <td><?php echo $value[0] ?></td>
-            <td><?php echo $value[1] ?></td>
-            <td><?php echo $value[2] ?></td>
-            <td><?php echo $value[3] ?></td>
-            <td><?php echo $value[4] ?></td>
-            <td><?php echo $value[5] ?></td>
+            <td><?php echo $value["user_name"] ?></td>
+            <td><?php echo $value["user_id"] ?></td>
+            <td><?php echo $value["type"] ?></td>
+            <td><?php echo $value["status"] ?></td>
+            <td><?php echo $value["user_crea"] ?></td>
+            <td><?php echo $value["date_crea"] ?></td>
             <td>
-              <a href="user_edit.php?id=<?php echo $value[1]?>" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
+              <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</a>
             </td>
           </tr>
-        <?php $i++;} ?>
+        <?php } ?>
         </tbody>
       </table>
     </div>
@@ -83,6 +60,6 @@ $tbl_hdr = array(
 
 <script type="text/javascript">
   $("#btnCreate").click(function(){
-    window.location.assign("<?php echo $url_add?>");
+    window.location.assign("user_add.php");
   });
 </script>
