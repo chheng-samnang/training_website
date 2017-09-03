@@ -17,7 +17,7 @@ $tbl_hdr = array(
                   "type"=>"Type",
                   "status"=>"Status",
                   "user_crea"=>"User Create",
-                  "date_crea"=>"Date Create"
+                  "date_crea"=>"Date Create",
 
 );
 
@@ -57,7 +57,7 @@ $tbl_hdr = array(
         </tr>
         </thead>
         <tbody>
-          <?php
+          <?php 
             $i = 0;
             foreach($tbl_bd as $value){
            ?>

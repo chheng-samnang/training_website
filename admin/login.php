@@ -7,9 +7,10 @@
   {
     $username = validate_input($_POST["u"]);
     $password = md5(validate_input($_POST["p"]));
+	
     if($username!=""&&$password!="") //when username and password have value
     {
-      $sql = "SELECT * FROM tbluser WHERE user_name='$username'";
+      echo $sql = "SELECT * FROM tbluser WHERE user_name='$username'";
       $query = query($sql,$conn);
       if(num_rows($query)>0)
       {
