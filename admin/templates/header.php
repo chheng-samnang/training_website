@@ -1,4 +1,5 @@
 <?php
+
 include_once("../include/config/initialize.php");
 include_once("../path.php");
 include_once("../include/config/session.php");
@@ -73,3 +74,4 @@ include_once("../include/config/session.php");
                 </ul>
             </div>
         </nav>
+

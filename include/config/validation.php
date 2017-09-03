@@ -6,6 +6,7 @@ function validate_input($data) {
   return $data;
 }
 
+
 function displayMsg($str,$state)
 {
   if($state=="error"){

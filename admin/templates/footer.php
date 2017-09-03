@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
     jQuery(function ($) {
         var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
@@ -72,5 +73,6 @@
     });
 </script>
 </body>
+
 </html>
 <?php close_conn($conn) ?>
