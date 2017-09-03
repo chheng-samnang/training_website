@@ -5,8 +5,10 @@ $sql = "SELECT * FROM tbluser";
 $query = query($sql,$conn);
 
 $tbl_bd = array();
+
 #setup header
 $header = "User Management";
+
 #url ADD
 $url_add = "user_add.php";
 
@@ -35,7 +37,6 @@ $tbl_hdr = array(
   }
 
 ?>
-
 
 <div class="container">
   <div class="row">
