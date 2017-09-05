@@ -1,5 +1,4 @@
 <?php include_once("templates/header.php");
-$j = 0;
 #query database
 $sql = "SELECT * FROM tbluser";
 $query = query($sql,$conn);
@@ -10,6 +9,9 @@ $header = "User Management";
 <style media="screen">
   .margin-top{
     margin-top:18px;
+  }
+  a:link{
+    text-decoration: none;
   }
 </style>
 
@@ -46,7 +48,7 @@ $header = "User Management";
             <td><?php echo $value["user_crea"] ?></td>
             <td><?php echo $value["date_crea"] ?></td>
             <td>
-              <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="http://localhost:8888/training_website/admin/user_edit.php?id=<?php echo $value['user_id']?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
               <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</a>
             </td>
           </tr>
