@@ -18,6 +18,7 @@
         {
           $msg = displayMsg("Login successful!","success");
           $_SESSION["username"] = $row["user_name"];
+          $_SESSION["userLogin"] = $row["user_id"];
         }else {
           $errorMsg = displayMsg("Incorrect password","error");
         }

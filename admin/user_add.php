@@ -23,15 +23,16 @@
     }else {
       $user_id = validate_input($_POST["txtuserid"]);
       $user_name = validate_input($_POST["txtusername"]);
-      $type = validate_input($_POST["ddl_type"]);
+      $type = validate_input($_POST["ddlType"]);
       $pass = validate_input($_POST["txtpassword"]);
       $status = validate_input($_POST["ddlStatus"]);
-      $desc = validate_input($_POST["txtDesc"]);
-      $user = $_SESSION["UserLogin"];
+      $desc = validate_input($_POST["txtdesc"]);
+      $user = isset($_SESSION["userLogin"])?$_SESSION["userLogin"]:"N/A";
       $date = date("Y-m-d");
       $sql = "INSERT INTO tbluser(user_id,user_name,type,user_pass,status,`desc`,user_crea,date_crea)
                           values('$user_id','$user_name','$type','$pass','$status','$desc','$user','$date')
       ";
+      query($sql,$conn);
     }
 
   }
@@ -64,22 +65,19 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label for="">User ID</label>
-                        <input class="form-control" type="text" name="txtuserid" value="" placeholder="enter user id here...">
+                        <input class="form-control" type="text" name="txtuserid" value="" placeholder="User ID">
                       </div>
 
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label for="">User Name</label>
-                        <input class="form-control" type="text" name="txtusername" value="" placeholder="enter user id here...">
+                        <input class="form-control" type="text" name="txtusername" value="" placeholder="Username">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label for="">User Type</label>
-                        <select class="form-control" name="ddlTYpe">
-                            <option value="none">Choose One</option>
+                        <select class="form-control" name="ddlType">
+                            <option value="none">Choose User Type</option>
                             <option value="admin">Administrator</option>
                             <option value="general">General user</option>
                         </select>
@@ -89,22 +87,19 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label for="">Password</label>
-                        <input class="form-control" type="password" name="txtpassword" value="" placeholder="enter user id here...">
+                        <input class="form-control" type="password" name="txtpassword" value="" placeholder="Password">
                       </div>
 
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label for="">Confirm</label>
-                        <input class="form-control" type="password" name="txtconfirm" value="" placeholder="enter user id here...">
+                        <input class="form-control" type="password" name="txtconfirm" value="" placeholder="Confirm Password">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label for="">status</label>
                         <select class="form-control" name="ddlStatus">
-                            <option value="-1">Choose One</option>
+                            <option value="-1">Choose Status</option>
                             <option value="1">Enable</option>
                             <option value="0">Disable</option>
                         </select>
@@ -123,7 +118,7 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label for="">Description</label>
-                        <textarea name="txtdesc" class="form-control" rows="8" cols="80"></textarea>
+                        <textarea name="txtdesc" placeholder="Description" class="form-control" rows="8" cols="80"></textarea>
                       </div>
                     </div>
                   </div>
