@@ -66,6 +66,7 @@ $header = "User Management";
             <td>
               <a href="http://localhost:8888/training_website/admin/user_edit.php?id=<?php echo $value['user_id']?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
               <button type="button" class="btn btn-danger" id="btnDelete" onclick="deleteUser('<?php echo $value['user_id']?>')" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+              <a href="change_password.php?id=<?php echo $value['user_id']?>" class="btn btn-warning"><i class="glyphicon glyphicon-lock"></i> Change Password</a>
             </td>
           </tr>
         <?php } ?>
@@ -107,6 +108,10 @@ $header = "User Management";
       $("#txtID").val(id);
     }
   }
+
+  $("#btnChange").click(function(){
+    window.location.assign("change_password.php");
+  });
   $("#btnCreate").click(function(){
     window.location.assign("user_add.php");
   });

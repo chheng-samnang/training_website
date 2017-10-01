@@ -10,8 +10,8 @@
         $msg = upload();
         $user_id = validate_input($_POST["txtuserid"]);
         $user_name = validate_input($_POST["txtusername"]);
-        $type = validate_input($_POST["ddlTYpe"]);
-        $pass = validate_input($_POST["txtpassword"]);
+        $type = validate_input($_POST["ddlType"]);
+        $pass = md5(validate_input($_POST["txtpassword"]));
         $status = validate_input($_POST["ddlStatus"]);
         $desc = validate_input($_POST["txtdesc"]);
         $user = "Admin";
